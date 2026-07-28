@@ -97,30 +97,6 @@ This project automates four core user journeys within the Calley Teams account s
 - **Independent, isolated tests** — each `@Test` method gets a fresh browser session via `BaseClass`'s `@BeforeMethod`/`@AfterMethod`, trading a little speed for easier debugging.
 - **Smart handling of manual security checkpoints** — reCAPTCHA and WhatsApp OTP verification are paused for human input (`waitForManualRecaptcha()`, `waitForManualOtpEntry()`) rather than attempting unreliable bypasses — the industry-standard approach for automating 2FA/CAPTCHA-protected flows.
 
-### Project Structure
-\`\`\`
-Calley_Team/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   ├── BaseClass.java          # WebDriver setup/teardown, loads config
-│   │   │   └── pompages/
-│   │   │       ├── RegistrationPage.java   # Registration, OTP verification, plan selection
-│   │   │       ├── LoginPage.java          # Login + popup dismissal
-│   │   │       ├── AgentPage.java          # Add Agent flow
-│   │   │       ├── CSVUploadPage.java      # Call List > Power Import
-│   │   │       └── DashboardPage.java      # Post-login dashboard checks
-│   │   └── resources/
-│   │       ├── data.properties         # URLs, credentials, test data (data-driven)
-│   │       └── sample_leads.csv        # Sample CSV for Power Import testing
-│   └── test/
-│       └── java/
-│           ├── RegistrationTest.java   # End-to-end registration test
-│           └── FullSetupTest.java      # Login -> Add Agent -> CSV Upload (ordered)
-├── pom.xml
-├── testng.xml
-└── README.md
-\`\`\`
 
 ### Known Limitations
 
